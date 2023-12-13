@@ -6,7 +6,8 @@
 
 :root {
   --section-spacing: 90vh;
-  --light-text-color: #ebe9e6;
+  --light-text-color: #f7f7f7;
+  --dark-bg-color: #141414;
 }
 
 /* CANVAS */
@@ -14,12 +15,14 @@
 canvas {
   position: fixed;
   z-index: 1;
+  top: 0;
+  left: 0;
 }
 
 /* NAVBAR */
 
 .navbar-container {
-  z-index: 100;
+  z-index: 1000;
   width: 100vw;
   height: 55px;
   background-color: aqua;
@@ -41,7 +44,7 @@ canvas {
   font-size: 21px;
   font-family: Jost;
   height: 100%;
-  width: 10%;
+  padding: 0 25px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -63,14 +66,54 @@ canvas {
   z-index: 100;
 }
 
+/* PROGESS BAR */
+
+.progress-bar-container {
+  justify-self: center;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+
+  background-color: rgba(13, 13, 14, 1);
+  z-index: 9999;
+}
+
+.progress-bar-label {
+  color: var(--light-text-color);
+  font-size: 24px;
+}
+
+#progress-bar {
+  width: 0;
+  height: 20px;
+  background-color: var(--light-text-color);
+  border-radius: 15px;
+  transition: width 0.2s;
+}
+
 /* MAIN */
 
+.main-div {
+  display: grid;
+}
+
 main {
+  margin-top: 100vh;
   z-index: 10;
   position: absolute;
   width: 100%;
   display: grid;
   font-family: Jost;
+  background-color: var(--dark-bg-color);
+  z-index: 100;
+  padding: 20% 5%;
 }
 
 section {
@@ -91,6 +134,8 @@ section {
   display: grid;
   height: 30vh;
   width: 80vw;
+  z-index: 10;
+  position: fixed;
 }
 
 .main-title {
@@ -118,7 +163,7 @@ section {
   grid-column: 2;
   width: fit-content;
   margin-bottom: 30px;
-  font-size: 40px;
+  font-size: 50px;
   color: var(--light-text-color);
   display: grid;
   place-content: center;
@@ -160,7 +205,35 @@ section {
 }
 
 .projects-section {
-  grid-column: 2/10;
+  grid-column: 2/12;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+}
+
+.projects-section > .section-paragraph {
+  padding: 1rem;
+}
+
+.project {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 10px;
+  grid-column-start: custom-grid-column-start;
+  grid-column-end: custom-grid-column-end;
+}
+
+.project-description {
+  font-size: 20px;
+}
+
+.project-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
 }
 
 .experience-section {

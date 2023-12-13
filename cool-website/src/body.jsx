@@ -41,13 +41,6 @@ function Body() {
 
   return (
     <main className="main">
-      <div className="home-page">
-        <div className="title-container">
-          <div className="subtitle">Hello World, I'm</div>
-          <div className="main-title">Gregory Young</div>
-        </div>
-      </div>
-
       <div className="section-title">About Me</div>
       <section className="about-container">
         <div
