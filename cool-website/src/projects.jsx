@@ -1,66 +1,68 @@
-import "./App.css";
+import "./stylesheets/App.css";
+import "./stylesheets/projects.css";
 
 import chefmateimg from "./assets/chefmate.png";
 import tmmcimg from "./assets/tmmc.png";
 
-import python from "./svgs/python.svg";
+import githubsvg from "./svgs/github.svg";
 
-function project(title, description, tools, columnStartEnd, key, image = null) {
-  this.title = title;
-  this.description = description;
-  this.tools = tools;
-  this.columnStartEnd = columnStartEnd;
-  (this.key = key), (this.image = image);
-}
+import pythonsvg from "./svgs/python.svg";
+import csvg from "./svgs/c.svg";
+import cppsvg from "./svgs/cpp.svg";
+
+import htmlsvg from "./svgs/html.svg";
+import csssvg from "./svgs/css.svg";
+import javascriptsvg from "./svgs/javascript.svg";
+import reactsvg from "./svgs/react.svg";
+import firebasesvg from "./svgs/firebase.svg";
 
 function Projects() {
-  const toolSvgs = new Map([["python", python]]);
-
-  const project1 = new project(
-    "Toyota Innovation Challenge",
-    "A quality control Machine Vision program for use in Toyota vehicle production lines.",
-    ["python"],
-    ["1", "6"],
-    "toyota",
-    tmmcimg
-  );
-
-  const project2 = new project(
-    "ChefMate WebApp",
-    "A platform to create and share recipes, and a convenient way to keep all of your recipes in one place",
-    ["firebase", "html", "css", "javascript"],
-    ["3", "9"],
-    "chefmate",
-    chefmateimg
-  );
-
-  const projects = [project1, project2];
-
   return (
-    <>
+    <section className="projects-section">
       <div className="section-title">My Projects</div>
-      <section className="projects-section">
-        {projects.map((project) => (
-          <div
-            className="section-paragraph section-background project"
-            custom-grid-column-start={project.columnStartEnd[0]}
-            custom-grid-column-end={project.columnStartEnd[1]}
-            key={project.key + "-section"}
-          >
-            <img className="project-image" src={project.image}></img>
-
-            <h1>{project.title}</h1>
-            <h2 className="project-description">{project.description}</h2>
-            <h2>Tools used:</h2>
-            <div className="project-tool-container">
-              {project.tools.map((tool) => {
-                <img src={toolSvgs[tool]}></img>;
-              })}
-            </div>
+      <div className="section-paragraph section-background project">
+        <div className="tools-container">
+          <div className="project-svg-container">
+            <img className="project-svg" src={htmlsvg}></img>
+            <img className="project-svg" src={csssvg}></img>
+            <img className="project-svg" src={javascriptsvg}></img>
+            <img className="project-svg" src={firebasesvg}></img>
           </div>
-        ))}
-      </section>
-    </>
+          <a target="_blank" href="https://github.com/Xoann/TheRecipeBook">
+            <img src={githubsvg} className="github-svg"></img>
+          </a>
+        </div>
+        <div className="project-info-container">
+          <img className="project-image" src={chefmateimg}></img>
+
+          <h1>ChefMate WebApp</h1>
+          <h2 className="project-description">
+            A platform to create and share recipes, and a convenient way to keep
+            all of your recipes in one place.
+          </h2>
+        </div>
+      </div>
+
+      <div className="section-paragraph section-background project">
+        <div className="tools-container">
+          <div className="project-svg-container">
+            <img className="project-svg" src={pythonsvg}></img>
+          </div>
+          <a href="https://github.com/gregoryyoung617/TIC2023" target="_blank">
+            <img src={githubsvg} className="github-svg"></img>
+          </a>
+        </div>
+        <div className="project-info-container">
+          <img className="project-image" src={tmmcimg}></img>
+
+          <h1>Toyota Innovation Challenge 2023</h1>
+          <h2 className="project-description">
+            A quality control Machine Vision program for use in Toyota vehicle
+            production lines.
+          </h2>
+        </div>
+      </div>
+    </section>
   );
 }
 

@@ -1,9 +1,11 @@
-import "./app.css";
+import "./stylesheets/app.css";
 
 import { useEffect } from "react";
 import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+
+import Name from "./name";
 
 import anime from "animejs/lib/anime.es.js";
 
@@ -67,7 +69,7 @@ export default function Home() {
       progressBar.style.width = `${(
         (loaded / total) *
         window.innerWidth *
-        0.3
+        0.2
       ).toFixed(0)}px`;
     };
 
@@ -88,18 +90,36 @@ export default function Home() {
           complete: function (anime) {
             progressBarContainer.remove();
           },
+        })
+        .add({
+          targets: ".subtitle",
+          opacity: ["0", "1"],
+          easing: "easeOutExpo",
+          duration: 1500,
+        })
+        .add({
+          targets: ".name-svg g path",
+          strokeDashoffset: [anime.setDashoffset, 0],
+          easing: "easeInOutQuart",
+          duration: 3000,
+        })
+        .add({
+          targets: ".navbar-container",
+          translateY: ["-55px", "0"],
+          duration: 1000,
+          easing: "easeOutExpo",
         });
     };
 
     const galaxyLoader = new GLTFLoader(loadingManager);
     galaxyLoader.load(
-      "public/galaxy.gltf",
+      "/galaxy.gltf",
       function (gltf) {
         galaxyModel = gltf.scene;
         let scale = 50;
-        gltf.scene.position.setX(-70);
-        gltf.scene.position.setZ(70);
-        gltf.scene.position.setY(-70);
+        gltf.scene.position.setX(0);
+        gltf.scene.position.setZ(0);
+        gltf.scene.position.setY(0);
         gltf.scene.scale.set(scale, scale, scale);
         scene.add(gltf.scene);
       },
@@ -111,7 +131,7 @@ export default function Home() {
       }
     );
 
-    const controls = new OrbitControls(camera, renderer.domElement);
+    // const controls = new OrbitControls(camera, renderer.domElement);
 
     const animate = () => {
       // boxMesh.rotation.x += 0.01;
@@ -131,8 +151,10 @@ export default function Home() {
     <div className="home-page">
       <canvas id="bg"></canvas>
       <div className="title-container">
-        <div className="subtitle">Hello World, I'm</div>
-        <div className="main-title">Gregory Young</div>
+        <div className="subtitle-container">
+          <div className="subtitle">Hello World, I'm</div>
+        </div>
+        <Name />
       </div>
     </div>
   );

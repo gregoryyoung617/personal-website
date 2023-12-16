@@ -1,4 +1,5 @@
-import "./App.css";
+import "./stylesheets/App.css";
+import "./stylesheets/experience.css";
 
 function Experience() {
   return (

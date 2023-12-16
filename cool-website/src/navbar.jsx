@@ -1,4 +1,4 @@
-import "./App.css";
+import "./stylesheets/App.css";
 import logo from "./assets/logo.png";
 
 function Navbar() {

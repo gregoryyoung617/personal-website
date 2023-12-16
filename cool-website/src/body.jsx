@@ -1,4 +1,4 @@
-import "./App.css";
+import "./stylesheets/App.css";
 import { useRef, useEffect } from "react";
 
 import { gsap } from "gsap";
@@ -8,57 +8,48 @@ gsap.registerPlugin(ScrollTrigger);
 import Projects from "./projects";
 import Experience from "./experience";
 import Contact from "./contact";
+import Skills from "./skills";
 
 function Body() {
-  gsap.registerPlugin(ScrollTrigger);
-
-  let aboutRef = useRef(null);
-  useEffect(() => {
-    let el = aboutRef.current;
-    let aboutTl = gsap.timeline({
-      scrollTrigger: {
-        trigger: el,
-        start: "top center",
-        end: "bottom center",
-        scrub: true,
-        markers: true,
-      },
-    });
-    aboutTl.to(el, {
-      rotation: 180,
-      duration: 1,
-    });
-
-    // aboutRef.addEventListener("mousemove", (e) => {
-    //   const rect = aboutRef.getBoundingClientRect();
-    //   let x = e.clientX - rect.left;
-    //   let y = e.clientY - rect.top;
-
-    //   rect.style.setProperty("--mouse-x", `${x}px`);
-    //   rect.style.setProperty("--mouse-y", `${y}px`);
-    // });
-  }, []);
-
   return (
     <main className="main">
-      <div className="section-title">About Me</div>
-      <section className="about-container">
-        <div
-          className="section-paragraph section-background"
-          ref={(el) => {
-            aboutRef = el;
-          }}
-        >
-          Hi there! I'm a fan of all things programming and technology, and I
-          love learning new skills and taking on different challenges.
-        </div>
-      </section>
+      <svg
+        id="visual"
+        viewBox="0 0 960 540"
+        width="960"
+        height="540"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlnsXlink="http://www.w3.org/1999/xlink"
+        version="1.1"
+        className="peaks-svg"
+        preserveAspectRatio="xMidYMid meet"
+      >
+        <path
+          d="M0 403L137 391L274 378L411 398L549 360L686 390L823 387L960 377L960 541L823 541L686 541L549 541L411 541L274 541L137 541L0 541Z"
+          fill="#0c0c0c"
+        ></path>
+        <path
+          d="M0 445L137 401L274 445L411 454L549 431L686 418L823 420L960 454L960 541L823 541L686 541L549 541L411 541L274 541L137 541L0 541Z"
+          fill="#0f0f0f"
+        ></path>
+        <path
+          d="M0 472L137 451L274 476L411 456L549 478L686 459L823 479L960 479L960 541L823 541L686 541L549 541L411 541L274 541L137 541L0 541Z"
+          fill="#111111"
+        ></path>
+        <path
+          d="M0 505L137 484L274 482L411 510L549 513L686 477L823 512L960 484L960 541L823 541L686 541L549 541L411 541L274 541L137 541L0 541Z"
+          fill="#141414"
+        ></path>
+      </svg>
+      <div className="section-container">
+        <Skills></Skills>
 
-      <Projects></Projects>
+        <Projects></Projects>
 
-      <Experience></Experience>
+        <Experience></Experience>
 
-      <Contact></Contact>
+        <Contact></Contact>
+      </div>
     </main>
   );
 }

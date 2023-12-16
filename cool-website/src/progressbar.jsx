@@ -1,4 +1,4 @@
-import "./app.css";
+import "./stylesheets/app.css";
 
 function ProgressBar() {
   return (

@@ -1,4 +1,4 @@
-import "./App.css";
+import "./stylesheets/App.css";
 
 import Navbar from "./navbar";
 import Body from "./body";
