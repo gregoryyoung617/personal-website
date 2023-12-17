@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg
+        id="visual"
+        viewBox="0 0 900 130"
+        width="900"
+        height="130"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlnsXlink="http://www.w3.org/1999/xlink"
+        version="1.1"
+        className="peaks-svg"
+      >
+        <path
+          d="M0 45L113 61L225 54L338 31L450 62L563 30L675 57L788 47L900 41L900 131L788 131L675 131L563 131L450 131L338 131L225 131L113 131L0 131Z"
+          fill="#0c0c0c"
+        ></path>
+        <path
+          d="M0 59L113 46L225 75L338 69L450 61L563 89L675 84L788 78L900 43L900 131L788 131L675 131L563 131L450 131L338 131L225 131L113 131L0 131Z"
+          fill="#0f0f0f"
+        ></path>
+        <path
+          d="M0 86L113 82L225 88L338 98L450 64L563 70L675 94L788 84L900 105L900 131L788 131L675 131L563 131L450 131L338 131L225 131L113 131L0 131Z"
+          fill="#111111"
+        ></path>
+        <path
+          d="M0 90L113 101L225 103L338 91L450 101L563 124L675 115L788 84L900 125L900 131L788 131L675 131L563 131L450 131L338 131L225 131L113 131L0 131Z"
+          fill="#141414"
+        ></path>
+      </svg>

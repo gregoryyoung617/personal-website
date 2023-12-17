@@ -5,10 +5,11 @@
 }
 
 :root {
-  --section-spacing: 30vh;
+  --section-spacing: 20vh;
   --light-text-color: #f7f7f7;
   --dark-bg-color: #141414;
   --gray-color: #434343;
+  --button-hover-color: #252526;
 }
 
 /* CANVAS */
@@ -54,6 +55,14 @@ canvas {
   transition: all 0.5s;
   border-width: 0;
   outline-width: 0;
+  cursor: pointer;
+
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .navbar-text:hover {
@@ -65,6 +74,7 @@ canvas {
   left: 10px;
   position: absolute;
   z-index: 100;
+  cursor: pointer;
 }
 
 /* PROGESS BAR */
@@ -106,9 +116,7 @@ main {
   width: 100%;
   display: flex;
   font-family: Jost;
-  margin-top: -400px;
 
-  padding-bottom: 10%;
   align-items: center;
   justify-content: flex-start;
   flex-direction: column;
@@ -116,16 +124,22 @@ main {
 }
 
 .peaks-svg {
-  width: 150vw;
-  z-index: 11;
+  z-index: 10000;
+  width: 100%;
 }
 
-.peaks-svg > * {
-  width: 100vw;
+.spacer {
+  aspect-ratio: 900/130;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-image: url("/peaks.svg");
 }
 
 section {
-  margin-top: 10vw;
+  margin-top: 5vw;
+  padding-top: 5vw;
   margin-bottom: var(--section-spacing);
 }
 
@@ -161,7 +175,7 @@ section {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 20vh;
+  margin-bottom: 5vh;
 }
 
 .title-container {
@@ -236,6 +250,24 @@ section {
   animation-iteration-count: infinite;
   animation-direction: alternate;
   animation-timing-function: ease-in-out;
+}
+
+.transition-svg {
+  width: 100%;
+}
+
+::-webkit-scrollbar {
+  width: 1em;
+  height: 1em;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  color: var(--gray-color);
+  border-radius: 100vw;
 }
 
 @keyframes section-glow {
