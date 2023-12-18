@@ -9,6 +9,7 @@
   --light-text-color: #f7f7f7;
   --dark-bg-color: #141414;
   --gray-color: #434343;
+  --light-gray-color: #565656;
   --button-hover-color: #252526;
 }
 
@@ -169,6 +170,14 @@ section {
   width: 100vw;
 }
 
+.offset-border {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 25px;
+  left: 25px;
+}
+
 .home-page {
   height: 100vh;
   background-color: transparent;
@@ -208,7 +217,8 @@ section {
 }
 
 .subtitle {
-  font-size: 45px;
+  font-family: "Bebas Neue";
+  font-size: 65px;
   color: var(--light-text-color);
 }
 
@@ -241,8 +251,7 @@ section {
 
 .section-background {
   box-shadow: 0px 0px 10px 0px rgba(214, 217, 216, 0.44);
-  background: rgba(13, 13, 14, 0.65);
-  backdrop-filter: blur(1px);
+  background: rgba(13, 13, 14, 1);
   border: 1px solid rgba(255, 255, 255, 0.5);
 
   animation-name: section-glow;
@@ -256,18 +265,30 @@ section {
   width: 100%;
 }
 
+.svg-grow-animation {
+  transition: transform 0.3s ease;
+}
+
+.svg-grow-animation:hover {
+  transform: scale(105%);
+}
+
+.svg-up-animation:hover {
+  transform: translateY(-4px);
+}
+
 ::-webkit-scrollbar {
-  width: 1em;
-  height: 1em;
+  width: 0.75em;
 }
 
 ::-webkit-scrollbar-track {
-  background-color: transparent;
+  background-color: var(--gray-color);
 }
 
 ::-webkit-scrollbar-thumb {
-  color: var(--gray-color);
+  background: rgba(13, 13, 14, 0.65);
   border-radius: 100vw;
+  border: 0.15em solid var(--gray-color);
 }
 
 @keyframes section-glow {

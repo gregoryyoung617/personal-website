@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+import { Canvas, useFrame } from "@react-three/fiber";
 
 import Name from "./name";
 
@@ -20,10 +21,13 @@ export default function Home() {
       1,
       1000
     );
-    camera.position.z = 100;
-    camera.position.y = 100;
-    camera.position.x = 100;
-
+    // camera.position.z = 60;
+    // camera.position.y = 140;
+    // camera.position.x = 80;
+    camera.position.z = 60;
+    camera.position.y = 140;
+    camera.position.x = 80;
+    camera.rotation.x = -0.4;
     const canvas = document.getElementById("bg");
     const renderer = new THREE.WebGLRenderer({
       canvas,
@@ -42,6 +46,9 @@ export default function Home() {
     spotLight.castShadow = true;
     spotLight.position.set(0, 64, 32);
     scene.add(spotLight);
+
+    const pointLight = new THREE.PointLight(0xffffff, 2.0, 600);
+    scene.add(pointLight);
 
     //gridhelper
     const gridHelper = new THREE.GridHelper(200, 50);
@@ -117,6 +124,9 @@ export default function Home() {
       function (gltf) {
         galaxyModel = gltf.scene;
         let scale = 50;
+        // gltf.scene.position.setX(15);
+        // gltf.scene.position.setZ(10);
+        // gltf.scene.position.setY(10);
         gltf.scene.position.setX(0);
         gltf.scene.position.setZ(0);
         gltf.scene.position.setY(0);
@@ -137,10 +147,10 @@ export default function Home() {
       // boxMesh.rotation.x += 0.01;
       // boxMesh.rotation.y += 0.01;
       if (galaxyModel) {
-        galaxyModel.rotation.y += 0.0001;
+        galaxyModel.rotation.y += 0.00005;
       }
 
-      //   controls.update();
+      // controls.update();
       renderer.render(scene, camera);
       window.requestAnimationFrame(animate);
     };

@@ -16,37 +16,60 @@ function Skills() {
     <>
       <section className="skills-container">
         <div className="section-title">My Skills</div>
-        <div className="skills-section section-background">
-          <div className="skill">
-            <div className="skill-title">Web Development</div>
-            <div className="skill-description">
-              Experienced with Front-end web design as well as Back-end tools
-              through various projects.
+        <div className="skills-section">
+          <div className="offset-border section-background">
+            <div className="skill">
+              <div className="skill-title">Web Development</div>
+              <div className="skill-description">
+                Experienced with Front-end web design as well as Back-end tools
+                through various projects.
+              </div>
+              <div className="skill-svg-container">
+                <img
+                  className="skill-svg svg-grow-animation"
+                  src={htmlsvg}
+                ></img>
+                <div className="skill-separator"></div>
+                <img
+                  className="skill-svg svg-grow-animation"
+                  src={csssvg}
+                ></img>
+                <div className="skill-separator"></div>
+                <img
+                  className="skill-svg svg-grow-animation"
+                  src={javascriptsvg}
+                ></img>
+                <div className="skill-separator"></div>
+                <img
+                  className="skill-svg svg-grow-animation"
+                  src={reactsvg}
+                ></img>
+                <div className="skill-separator"></div>
+                <img
+                  className="skill-svg svg-grow-animation"
+                  src={firebasesvg}
+                ></img>
+              </div>
             </div>
-            <div className="skill-svg-container">
-              <img className="skill-svg" src={htmlsvg}></img>
-              <div className="skill-separator"></div>
-              <img className="skill-svg" src={csssvg}></img>
-              <div className="skill-separator"></div>
-              <img className="skill-svg" src={javascriptsvg}></img>
-              <div className="skill-separator"></div>
-              <img className="skill-svg" src={reactsvg}></img>
-              <div className="skill-separator"></div>
-              <img className="skill-svg" src={firebasesvg}></img>
-            </div>
-          </div>
-          <div className="skill">
-            <div className="skill-title">Other Programming Languages</div>
-            <div className="skill-description">
-              4 years of experience in Object-Oriented Programming, Data
-              Structures and Algorithms.
-            </div>
-            <div className="skill-svg-container">
-              <img className="skill-svg" src={csvg}></img>
-              <div className="skill-separator"></div>
-              <img className="skill-svg" src={cppsvg}></img>
-              <div className="skill-separator"></div>
-              <img className="skill-svg" src={pythonsvg}></img>
+            <div className="skill">
+              <div className="skill-title">Other Programming Languages</div>
+              <div className="skill-description">
+                4 years of experience in Object-Oriented Programming, Dynamic
+                Programming, Data Structures and Algorithms.
+              </div>
+              <div className="skill-svg-container">
+                <img className="skill-svg svg-grow-animation" src={csvg}></img>
+                <div className="skill-separator"></div>
+                <img
+                  className="skill-svg svg-grow-animation"
+                  src={cppsvg}
+                ></img>
+                <div className="skill-separator"></div>
+                <img
+                  className="skill-svg svg-grow-animation"
+                  src={pythonsvg}
+                ></img>
+              </div>
             </div>
           </div>
         </div>

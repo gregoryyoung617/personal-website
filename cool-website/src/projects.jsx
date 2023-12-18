@@ -25,20 +25,32 @@ function Projects() {
       <div className="section-paragraph section-background project">
         <div className="tools-container">
           <div className="project-svg-container">
-            <img className="project-svg" src={htmlsvg}></img>
-            <img className="project-svg" src={csssvg}></img>
-            <img className="project-svg" src={javascriptsvg}></img>
-            <img className="project-svg" src={firebasesvg}></img>
+            <img className="project-svg svg-grow-animation" src={htmlsvg}></img>
+            <img className="project-svg svg-grow-animation" src={csssvg}></img>
+            <img
+              className="project-svg svg-grow-animation"
+              src={javascriptsvg}
+            ></img>
+            <img
+              className="project-svg svg-grow-animation"
+              src={firebasesvg}
+            ></img>
           </div>
           <a target="_blank" href="https://github.com/Xoann/TheRecipeBook">
-            <img src={githubsvg} className="github-svg"></img>
+            <img
+              src={githubsvg}
+              className="github-svg svg-grow-animation svg-up-animation"
+            ></img>
           </a>
         </div>
         <div className="project-info-container">
           <div className="image-container">
             <img className="project-image" src={chefmateimg}></img>
             <a href="https://chefmate.ca" target="_blank">
-              <img className="open-svg" src={opensvg}></img>
+              <img
+                className="open-svg svg-grow-animation svg-up-animation"
+                src={opensvg}
+              ></img>
             </a>
           </div>
 
@@ -52,11 +64,17 @@ function Projects() {
 
       <div className="section-paragraph section-background project">
         <div className="tools-container">
-          <div className="project-svg-container">
-            <img className="project-svg" src={pythonsvg}></img>
+          <div className="project-svg-container ">
+            <img
+              className="project-svg svg-grow-animation"
+              src={pythonsvg}
+            ></img>
           </div>
           <a href="https://github.com/gregoryyoung617/TIC2023" target="_blank">
-            <img src={githubsvg} className="github-svg"></img>
+            <img
+              src={githubsvg}
+              className="github-svg svg-grow-animation svg-up-animation"
+            ></img>
           </a>
         </div>
         <div className="project-info-container">
@@ -73,13 +91,16 @@ function Projects() {
       <div className="section-paragraph section-background project">
         <div className="tools-container">
           <div className="project-svg-container">
-            <img className="project-svg" src={csvg}></img>
+            <img className="project-svg svg-grow-animation" src={csvg}></img>
           </div>
           <a
             href="https://github.com/gregoryyoung617/STM32-Environment-Project"
             target="_blank"
           >
-            <img src={githubsvg} className="github-svg"></img>
+            <img
+              src={githubsvg}
+              className="github-svg svg-grow-animation svg-up-animation"
+            ></img>
           </a>
         </div>
         <div className="project-info-container">
