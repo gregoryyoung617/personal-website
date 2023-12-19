@@ -1,5 +1,5 @@
 import "./stylesheets/App.css";
-import logo from "./assets/logo.png";
+import logo from "./svgs/logo.svg";
 
 function scrollTo(element) {
   element.scrollIntoView({ behavior: "smooth" });
@@ -10,31 +10,49 @@ function Navbar() {
   return (
     <>
       <div className="navbar-container">
-        <div
-          className="navbar-text"
-          onClick={() => scrollTo(document.querySelector(".skills-container"))}
-        >
-          Skills
+        <div className="navbar-button-container">
+          <div
+            className="navbar-text"
+            onClick={function () {
+              scrollTo(document.querySelector(".skills-container"));
+            }}
+          >
+            Skills
+          </div>
+          <div className="navbar-text-underline"></div>
         </div>
-        <div
-          className="navbar-text"
-          onClick={() => scrollTo(document.querySelector(".projects-section"))}
-        >
-          Projects
+        <div className="navbar-button-container">
+          <div
+            className="navbar-text"
+            onClick={() =>
+              scrollTo(document.querySelector(".projects-section"))
+            }
+          >
+            Projects
+          </div>
+          <div className="navbar-text-underline"></div>
         </div>
-        <div
-          className="navbar-text"
-          onClick={() =>
-            scrollTo(document.querySelector(".experience-section"))
-          }
-        >
-          Experience
+
+        <div className="navbar-button-container">
+          <div
+            className="navbar-text"
+            onClick={() =>
+              scrollTo(document.querySelector(".experience-section"))
+            }
+          >
+            Experience
+          </div>
+          <div className="navbar-text-underline"></div>
         </div>
-        <div
-          className="navbar-text"
-          onClick={() => scrollTo(document.querySelector(".contact-section"))}
-        >
-          Contact
+
+        <div className="navbar-button-container">
+          <div
+            className="navbar-text"
+            onClick={() => scrollTo(document.querySelector(".contact-section"))}
+          >
+            Contact
+          </div>
+          <div className="navbar-text-underline"></div>
         </div>
         <img
           src={logo}

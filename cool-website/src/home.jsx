@@ -107,7 +107,7 @@ export default function Home() {
         .add({
           targets: ".name-svg g path",
           strokeDashoffset: [anime.setDashoffset, 0],
-          easing: "easeInOutQuart",
+          easing: "easeInQuad",
           duration: 3000,
         })
         .add({
