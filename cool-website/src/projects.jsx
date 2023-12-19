@@ -45,7 +45,9 @@ function Projects() {
         </div>
         <div className="project-info-container">
           <div className="image-container">
-            <img className="project-image" src={chefmateimg}></img>
+            <div className="project-image-div">
+              <img className="project-image" src={chefmateimg}></img>
+            </div>
             <a href="https://chefmate.ca" target="_blank">
               <img
                 className="open-svg svg-grow-animation svg-up-animation"
@@ -78,7 +80,9 @@ function Projects() {
           </a>
         </div>
         <div className="project-info-container">
-          <img className="project-image" src={tmmcimg}></img>
+          <div className="project-image-div">
+            <img className="project-image" src={tmmcimg}></img>
+          </div>
 
           <h1>Toyota Innovation Challenge 2023</h1>
           <h2 className="project-description">
@@ -104,7 +108,9 @@ function Projects() {
           </a>
         </div>
         <div className="project-info-container">
-          <img className="project-image" src={stm32img}></img>
+          <div className="project-image-div">
+            <img className="project-image" src={stm32img}></img>
+          </div>
 
           <h1>STM32 Climate Change Project</h1>
           <h2 className="project-description">
