@@ -25,6 +25,8 @@
   display: grid;
   grid-template-rows: repeat(26, 32px);
   grid-template-columns: repeat(23, 1fr);
+  min-width:900px;
+  min-height:900px;
 }
 
 .card {
@@ -32,6 +34,8 @@
   display: flex;
   gap: 20px;
   transition: all 0.3s ease;
+  min-width:430px;
+  min-height:224px;
 }
 
 .card:hover {
