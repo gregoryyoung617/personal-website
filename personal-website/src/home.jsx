@@ -73,11 +73,19 @@ export default function Home() {
 
     loadingManager.onProgress = function (url, loaded, total) {
       progressBarLabel.textContent = `${(loaded / total).toFixed(0) * 100}%`;
-      progressBar.style.width = `${(
-        (loaded / total) *
-        window.innerWidth *
-        0.2
-      ).toFixed(0)}px`;
+      if (window.innerWidth < 900){
+        progressBar.style.width = `${(
+          (loaded / total) *
+          200
+        ).toFixed(0)}px`;
+      }
+      else {
+        progressBar.style.width = `${(
+          (loaded / total) *
+          window.innerWidth *
+          0.2
+        ).toFixed(0)}px`;
+      }
     };
 
     const progressBarContainer = document.querySelector(

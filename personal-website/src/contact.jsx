@@ -62,7 +62,7 @@ function Contact() {
                   href="https://www.linkedin.com/in/gregory-young-76170024b/"
                   target="_blank"
                 >
-                  <h1 className="contact-text">Linkedin</h1>
+                  <h1 className="contact-text">LinkedIn</h1>
                 </a>
 
                 <div className="svg-link svg-grow-animation svg-up-animation">
