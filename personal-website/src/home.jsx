@@ -24,10 +24,10 @@ export default function Home() {
     // camera.position.z = 60;
     // camera.position.y = 140;
     // camera.position.x = 80;
-    camera.position.z = 60;
-    camera.position.y = 140;
+    camera.position.z = 70;
+    camera.position.y = 100;
     camera.position.x = 80;
-    camera.rotation.x = -0.4;
+    camera.rotation.y = 0.5;
     const canvas = document.getElementById("bg");
     const renderer = new THREE.WebGLRenderer({
       canvas,
@@ -73,13 +73,9 @@ export default function Home() {
 
     loadingManager.onProgress = function (url, loaded, total) {
       progressBarLabel.textContent = `${(loaded / total).toFixed(0) * 100}%`;
-      if (window.innerWidth < 900){
-        progressBar.style.width = `${(
-          (loaded / total) *
-          200
-        ).toFixed(0)}px`;
-      }
-      else {
+      if (window.innerWidth < 900) {
+        progressBar.style.width = `${((loaded / total) * 200).toFixed(0)}px`;
+      } else {
         progressBar.style.width = `${(
           (loaded / total) *
           window.innerWidth *
@@ -126,18 +122,29 @@ export default function Home() {
         });
     };
 
+    const controls = new OrbitControls(camera, renderer.domElement);
+    controls.enableDamping = true;
+    controls.enablePan = false;
+    controls.autoRotate = true;
+    controls.autoRotateSpeed = 0.15;
+    controls.target = new THREE.Vector3(13, 36, 10);
+    // controls.maxAzimuthAngle = 3.14;
+    // controls.minAzimuthAngle = 3.14;
+    // controls.maxPolarAngle = 3.14;
+    // controls.minPolarAngle = 3.14;
+
     const galaxyLoader = new GLTFLoader(loadingManager);
     galaxyLoader.load(
       "/galaxy.gltf",
       function (gltf) {
         galaxyModel = gltf.scene;
         let scale = 50;
-        // gltf.scene.position.setX(15);
-        // gltf.scene.position.setZ(10);
-        // gltf.scene.position.setY(10);
-        gltf.scene.position.setX(0);
-        gltf.scene.position.setZ(0);
-        gltf.scene.position.setY(0);
+        gltf.scene.position.setX(-60);
+        gltf.scene.position.setZ(80);
+        gltf.scene.position.setY(-40);
+        // gltf.scene.position.setX(0);
+        // gltf.scene.position.setZ(0);
+        // gltf.scene.position.setY(0);
         gltf.scene.scale.set(scale, scale, scale);
         scene.add(gltf.scene);
       },
@@ -149,16 +156,11 @@ export default function Home() {
       }
     );
 
-    // const controls = new OrbitControls(camera, renderer.domElement);
-
     const animate = () => {
       // boxMesh.rotation.x += 0.01;
       // boxMesh.rotation.y += 0.01;
-      if (galaxyModel) {
-        galaxyModel.rotation.y += 0.00005;
-      }
 
-      // controls.update();
+      controls.update();
       renderer.render(scene, camera);
       window.requestAnimationFrame(animate);
     };
