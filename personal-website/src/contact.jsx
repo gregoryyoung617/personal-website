@@ -1,4 +1,4 @@
-import "./stylesheets/App.css";
+import "./stylesheets/app.css";
 import "./stylesheets/contact.css";
 
 import emailsvg from "./svgs/email.svg";

@@ -1,4 +1,4 @@
-import "./stylesheets/App.css";
+import "./stylesheets/app.css";
 import logo from "./svgs/logo.svg";
 
 function scrollTo(element) {

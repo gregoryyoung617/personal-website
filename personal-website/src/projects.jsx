@@ -1,4 +1,4 @@
-import "./stylesheets/App.css";
+import "./stylesheets/app.css";
 import "./stylesheets/projects.css";
 
 import chefmateimg from "./assets/chefmate.png";

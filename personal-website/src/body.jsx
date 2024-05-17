@@ -1,4 +1,4 @@
-import "./stylesheets/App.css";
+import "./stylesheets/app.css";
 import { useRef, useEffect } from "react";
 
 import { gsap } from "gsap";

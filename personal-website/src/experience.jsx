@@ -1,4 +1,4 @@
-import "./stylesheets/App.css";
+import "./stylesheets/app.css";
 import "./stylesheets/experience.css";
 
 import uwlogo from "./assets/uwlogo.png";
@@ -42,8 +42,6 @@ function Experience() {
               </div>
             </div>
             <div className="dot"></div>
-
-
           </div>
         </div>
       </section>
