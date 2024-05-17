@@ -3,6 +3,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  min-height:1000px;
 }
 
 .timeline-container {
@@ -12,11 +13,12 @@
   justify-content: center;
 }
 
-.timeline {
-  position: absolute;
-  width: 5px;
-  height: 832px;
-  background-color: var(--light-text-color);
+.media-timeline{
+  justify-self: center;
+  grid-column: 12/13;
+  grid-row: 1/26;
+  background-color: white;
+  width:5px;
 }
 
 .card-container {
@@ -25,6 +27,9 @@
   display: grid;
   grid-template-rows: repeat(26, 32px);
   grid-template-columns: repeat(23, 1fr);
+  min-width:900px;
+  min-height:900px;
+  margin-bottom:-200px;
 }
 
 .card {
@@ -32,6 +37,8 @@
   display: flex;
   gap: 20px;
   transition: all 0.3s ease;
+  min-width:430px;
+  min-height:224px;
 }
 
 .card:hover {
@@ -106,4 +113,113 @@
 
 .card-container :nth-child(3 of .card) {
   grid-row: 16/23;
+}
+
+@media only screen and (max-width: 940px){
+  .timeline-container{
+    justify-content: right;
+  }
+
+  .card-container{
+    min-width:300px;
+    grid-template-columns: repeat(10, 1fr);
+  }
+
+  .media-timeline{
+    grid-column: 12/13;
+    grid-row: 1/26;
+  }
+
+  .card-container :nth-child(odd of .card) {
+    grid-column: 1/10;
+  }
+
+  .card-container :nth-child(even of .card) {
+    grid-column: 1/10;
+  }
+
+  .card-container :nth-child(1 of .card) {
+    grid-row: 2/9;
+  }
+  
+  .card-container :nth-child(2 of .card) {
+    grid-row: 10/17;
+  }
+  
+  .card-container :nth-child(3 of .card) {
+    grid-row: 18/24;
+  }
+
+  .card-container :nth-child(1 of .dot) {
+    grid-row: 5/6;
+  }
+  
+  .card-container :nth-child(2 of .dot) {
+    grid-row: 13/14;
+  }
+  
+  .card-container :nth-child(3 of .dot) {
+    grid-row: 21/22;
+  }
+}
+
+@media only screen and (max-width:660px){
+  .card{
+    min-width: 200px;
+  }
+
+  .card-container{
+    grid-template-rows: repeat(30, 32px);
+    grid-template-columns: repeat(8, 1fr);
+  }
+
+  .card-container :nth-child(odd of .card) {
+    grid-column: 1/8;
+  }
+
+  .card-container :nth-child(even of .card) {
+    grid-column: 1/8;
+  }
+
+  .card-container :nth-child(1 of .card) {
+    grid-row: 2/10;
+  }
+  
+  .card-container :nth-child(2 of .card) {
+    grid-row: 11/19;
+  }
+  
+  .card-container :nth-child(3 of .card) {
+    grid-row: 20/28;
+  }
+
+  .card-container :nth-child(1 of .dot) {
+    grid-row: 5/6;
+  }
+  
+  .card-container :nth-child(2 of .dot) {
+    grid-row: 14/15;
+  }
+  
+  .card-container :nth-child(3 of .dot) {
+    grid-row: 23/24;
+  }
+
+  .media-timeline{
+    grid-row:1/30;
+  }
+}
+
+@media only screen and (max-width:590px){
+  .item-role{
+    font-size: 17px;
+  }
+
+  .item-title{
+    font-size: 22px;
+  }
+
+  .experience-logo{
+    height:60px;
+  }
 }
