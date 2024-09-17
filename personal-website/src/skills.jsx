@@ -14,13 +14,19 @@ import reactsvg from "./svgs/react.svg";
 import firebasesvg from "./svgs/firebase.svg";
 import armsvg from "./svgs/arm.svg"
 
-const SkillSvg = ({svg}) =>{
-  return <>
+const SkillSvg = ({svg, name}) =>{
+  useEffect(()=>{
+    console.log(svg);
+  },[svg]);
+  return (
+  <div className="svg-container">
     <img
       className="skill-svg svg-grow-animation"
       src={svg}
     ></img>
-  </>
+    <h4 className="svg-name">{name}</h4>
+  </div>
+  )
 }
 
 function Skills() {
@@ -38,15 +44,15 @@ function Skills() {
                 through various projects.
               </div>
               <div className="skill-svg-container">
-                <SkillSvg svg = {htmlsvg}/>
+                <SkillSvg svg = {htmlsvg} name="HTML"/>
                 <div className="skill-separator"></div>
-                <SkillSvg svg = {csssvg}/>
+                <SkillSvg svg = {csssvg} name="CSS"/>
                 <div className="skill-separator"></div>
-                <SkillSvg svg = {javascriptsvg}/>
+                <SkillSvg svg = {javascriptsvg} name="JavaScript"/>
                 <div className="skill-separator"></div>
-                <SkillSvg svg = {reactsvg}/>
+                <SkillSvg svg = {reactsvg} name = "React"/>
                 <div className="skill-separator"></div>
-                <SkillSvg svg = {firebasesvg}/>
+                <SkillSvg svg = {firebasesvg} name="Firebase"/>
               </div>
             </div>
             <div className="skill">
@@ -55,13 +61,13 @@ function Skills() {
                 2 years of experience in Low-level programming through FPGA, Cortex M3 and custom PCB projects.
               </div>
               <div className="skill-svg-container">
-                <SkillSvg svg = {csvg}/>
+                <SkillSvg svg = {csvg} name="C"/>
                 <div className="skill-separator"></div>
-                <SkillSvg svg = {cppsvg}/>
+                <SkillSvg svg = {cppsvg} name="C++"/>
                 <div className="skill-separator"></div>
-                <SkillSvg svg = {pythonsvg}/>
+                <SkillSvg svg = {pythonsvg}name="Python"/>
                 <div className="skill-separator"></div>
-                <SkillSvg svg = {armsvg}/>
+                <SkillSvg svg = {armsvg} name="ARM Assembly"/>
                 
               </div>
             </div>
