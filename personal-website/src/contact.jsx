@@ -30,7 +30,7 @@ function Contact() {
                 src={emailsvg}
               ></img>
               <a
-                href="https://www.linkedin.com/in/gregory-young-76170024b/"
+                href="https://www.linkedin.com/in/gregory-t-young/"
                 target="_blank"
               >
                 <img
@@ -59,7 +59,7 @@ function Contact() {
               </div>
               <div className="contact-text-container">
                 <a
-                  href="https://www.linkedin.com/in/gregory-young-76170024b/"
+                  href="https://www.linkedin.com/in/gregory-t-young"
                   target="_blank"
                 >
                   <h1 className="contact-text">LinkedIn</h1>
@@ -67,7 +67,7 @@ function Contact() {
 
                 <div className="svg-link svg-grow-animation svg-up-animation">
                   <a
-                    href="https://www.linkedin.com/in/gregory-young-76170024b/"
+                    href="https://www.linkedin.com/in/gregory-t-young"
                     target="_blank"
                   >
                     <img src={opensvg} className="text-svg"></img>

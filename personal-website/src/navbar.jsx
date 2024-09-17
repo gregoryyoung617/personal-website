@@ -19,7 +19,7 @@ function Navbar() {
           >
             Skills
           </div>
-          <div className="navbar-text-underline"></div>
+          <span className="navbar-text-underline"></span>
         </div>
         <div className="navbar-button-container">
           <div

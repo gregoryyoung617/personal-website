@@ -1,5 +1,6 @@
 import "./stylesheets/app.css";
 import "./stylesheets/projects.css";
+import React, {useState, useEffect} from 'react';
 
 import chefmateimg from "./assets/chefmate.png";
 import tmmcimg from "./assets/tmmc.png";
@@ -18,25 +19,16 @@ import javascriptsvg from "./svgs/javascript.svg";
 import reactsvg from "./svgs/react.svg";
 import firebasesvg from "./svgs/firebase.svg";
 
-function Projects() {
+const Project = ({github, tools, mainImage, link, title, description})=>{
   return (
-    <section className="projects-section">
-      <div className="section-title">My Projects</div>
-      <div className="section-paragraph section-background project">
+    <div className="section-paragraph section-background project">
         <div className="tools-container">
           <div className="project-svg-container">
-            <img className="project-svg svg-grow-animation" src={htmlsvg}></img>
-            <img className="project-svg svg-grow-animation" src={csssvg}></img>
-            <img
-              className="project-svg svg-grow-animation"
-              src={javascriptsvg}
-            ></img>
-            <img
-              className="project-svg svg-grow-animation"
-              src={firebasesvg}
-            ></img>
+            {tools.map((tool, index)=>(
+              <img key = {index} className="project-svg svg-grow-animation" src={tool}></img>
+            ))}
           </div>
-          <a target="_blank" href="https://github.com/Xoann/TheRecipeBook">
+          <a target="_blank" href={github}>
             <img
               src={githubsvg}
               className="github-svg svg-grow-animation svg-up-animation"
@@ -45,80 +37,61 @@ function Projects() {
         </div>
         <div className="project-info-container">
           <div className="image-container">
-            <div className="project-image-div">
-              <img className="project-image" src={chefmateimg}></img>
-            </div>
-            <a href="https://chefmate.ca" target="_blank">
-              <img
-                className="open-svg svg-grow-animation svg-up-animation"
-                src={opensvg}
-              ></img>
+            <a href={link? link:github}  target="_blank">
+              <div className="project-image-div">
+                <img className="project-image" src={mainImage}></img>
+              </div>
             </a>
+            {link&&
+              <a href={link} target="_blank">
+                <img
+                  className="open-svg svg-grow-animation svg-up-animation"
+                  src={opensvg}
+                ></img>
+              </a>
+            }
           </div>
 
-          <h1>ChefMate WebApp</h1>
+          <h1>{title}</h1>
           <h2 className="project-description">
-            A platform to create and share recipes, and a convenient way to keep
-            all of your recipes in one place.
+            {description}
           </h2>
         </div>
       </div>
+  )
+}
 
-      <div className="section-paragraph section-background project">
-        <div className="tools-container">
-          <div className="project-svg-container ">
-            <img
-              className="project-svg svg-grow-animation"
-              src={pythonsvg}
-            ></img>
-          </div>
-          <a href="https://github.com/gregoryyoung617/TIC2023" target="_blank">
-            <img
-              src={githubsvg}
-              className="github-svg svg-grow-animation svg-up-animation"
-            ></img>
-          </a>
-        </div>
-        <div className="project-info-container">
-          <div className="project-image-div">
-            <img className="project-image" src={tmmcimg}></img>
-          </div>
+function Projects() {
+  const chefmateSvgs = ["hi", "bye"];
 
-          <h1>Toyota Innovation Challenge 2023</h1>
-          <h2 className="project-description">
-            A quality control Machine Vision program for use in Toyota vehicle
-            production lines.
-          </h2>
-        </div>
-      </div>
+  return (
+    <section className="projects-section">
+      <div className="section-title">My Projects</div>
+      <Project
+        github = "https://github.com/Xoann/TheRecipeBook"
+        mainImage = {chefmateimg}
+        link = "https://chefmate.ca"
+        tools = {[htmlsvg, csssvg, javascriptsvg, firebasesvg]}
+        title = "ChefMate WebApp"
+        description = "A platform to create and share recipes, and a convenient way to keep all of your recipes in one place."
+      />
 
-      <div className="section-paragraph section-background project">
-        <div className="tools-container">
-          <div className="project-svg-container">
-            <img className="project-svg svg-grow-animation" src={csvg}></img>
-          </div>
-          <a
-            href="https://github.com/gregoryyoung617/STM32-Environment-Project"
-            target="_blank"
-          >
-            <img
-              src={githubsvg}
-              className="github-svg svg-grow-animation svg-up-animation"
-            ></img>
-          </a>
-        </div>
-        <div className="project-info-container">
-          <div className="project-image-div">
-            <img className="project-image" src={stm32img}></img>
-          </div>
+      <Project
+        github="https://github.com/gregoryyoung617/TIC2023"
+        mainImage = {tmmcimg}
+        tools = {[pythonsvg]}
+        title = "Toyota Innovation Challenge 2023"
+        description = "A quality control Machine Vision program for use in Toyota vehicle production lines."
+      />
 
-          <h1>STM32 Climate Change Project</h1>
-          <h2 className="project-description">
-            STM32 Microcontroller program to interface with 2 temperature
-            sensors to measure the insulation efficiency of windows.
-          </h2>
-        </div>
-      </div>
+      <Project
+        github="https://github.com/gregoryyoung617/STM32-Environment-Project"
+        mainImage={stm32img}
+        tools = {[csvg]}
+        title="STM32 Climate Change Project"
+        description="STM32 Microcontroller program to interface with 2 temperature sensors to measure the insulation efficiency of windows."
+      />
+
     </section>
   );
 }

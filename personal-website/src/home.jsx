@@ -71,8 +71,18 @@ export default function Home() {
 
     const progressBarLabel = document.querySelector(".progress-bar-label");
 
+    loadingManager.onStart = ()=>{
+      let maxWidth = window.innerWidth*0.2;
+      anime({
+        targets:'.progress-bar-label',
+        innerHTML: ['0%', '100%'],
+        round: 1,
+        easing: 'easeInOutExpo'
+      })
+    }
+
     loadingManager.onProgress = function (url, loaded, total) {
-      progressBarLabel.textContent = `${(loaded / total).toFixed(0) * 100}%`;
+      
       if (window.innerWidth < 900) {
         progressBar.style.width = `${((loaded / total) * 200).toFixed(0)}px`;
       } else {
@@ -95,7 +105,7 @@ export default function Home() {
           easing: "easeOutExpo",
         })
         .add({
-          delay: 1000,
+          delay: 700,
           translateX: "100vw",
           duration: 1300,
           complete: function (anime) {
@@ -125,6 +135,7 @@ export default function Home() {
     const controls = new OrbitControls(camera, renderer.domElement);
     controls.enableDamping = true;
     controls.enablePan = false;
+    controls.enableZoom = false;
     controls.autoRotate = true;
     controls.autoRotateSpeed = 0.15;
     controls.target = new THREE.Vector3(13, 36, 10);

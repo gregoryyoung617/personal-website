@@ -10,12 +10,10 @@ import Experience from "./experience";
 import Contact from "./contact";
 import Skills from "./skills";
 
-import background from "./svgs/transition.svg";
-
 function Body() {
   return (
     <main className="main">
-      <img className="transition-svg" src={background}></img>
+      {/* <img className="transition-svg" src={background}></img> */}
       <div className="section-container">
         <Skills></Skills>
 

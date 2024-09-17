@@ -1,5 +1,7 @@
 import "./stylesheets/app.css";
 import "./stylesheets/skills.css";
+import React, {useEffect} from 'react';
+import anime from "animejs/lib/anime.es.js";
 
 import csvg from "./svgs/c.svg";
 import cppsvg from "./svgs/cpp.svg";
@@ -10,8 +12,19 @@ import csssvg from "./svgs/css.svg";
 import javascriptsvg from "./svgs/javascript.svg";
 import reactsvg from "./svgs/react.svg";
 import firebasesvg from "./svgs/firebase.svg";
+import armsvg from "./svgs/arm.svg"
+
+const SkillSvg = ({svg}) =>{
+  return <>
+    <img
+      className="skill-svg svg-grow-animation"
+      src={svg}
+    ></img>
+  </>
+}
 
 function Skills() {
+
   return (
     <>
       <section className="skills-container">
@@ -25,50 +38,31 @@ function Skills() {
                 through various projects.
               </div>
               <div className="skill-svg-container">
-                <img
-                  className="skill-svg svg-grow-animation"
-                  src={htmlsvg}
-                ></img>
+                <SkillSvg svg = {htmlsvg}/>
                 <div className="skill-separator"></div>
-                <img
-                  className="skill-svg svg-grow-animation"
-                  src={csssvg}
-                ></img>
+                <SkillSvg svg = {csssvg}/>
                 <div className="skill-separator"></div>
-                <img
-                  className="skill-svg svg-grow-animation"
-                  src={javascriptsvg}
-                ></img>
+                <SkillSvg svg = {javascriptsvg}/>
                 <div className="skill-separator"></div>
-                <img
-                  className="skill-svg svg-grow-animation"
-                  src={reactsvg}
-                ></img>
+                <SkillSvg svg = {reactsvg}/>
                 <div className="skill-separator"></div>
-                <img
-                  className="skill-svg svg-grow-animation"
-                  src={firebasesvg}
-                ></img>
+                <SkillSvg svg = {firebasesvg}/>
               </div>
             </div>
             <div className="skill">
-              <div className="skill-title">Other Programming Languages</div>
+              <div className="skill-title">Embedded Programming</div>
               <div className="skill-description">
-                4 years of experience in Object-Oriented Programming, Dynamic
-                Programming, Data Structures and Algorithms.
+                2 years of experience in Low-level programming through FPGA, Cortex M3 and custom PCB projects.
               </div>
               <div className="skill-svg-container">
-                <img className="skill-svg svg-grow-animation" src={csvg}></img>
+                <SkillSvg svg = {csvg}/>
                 <div className="skill-separator"></div>
-                <img
-                  className="skill-svg svg-grow-animation"
-                  src={cppsvg}
-                ></img>
+                <SkillSvg svg = {cppsvg}/>
                 <div className="skill-separator"></div>
-                <img
-                  className="skill-svg svg-grow-animation"
-                  src={pythonsvg}
-                ></img>
+                <SkillSvg svg = {pythonsvg}/>
+                <div className="skill-separator"></div>
+                <SkillSvg svg = {armsvg}/>
+                
               </div>
             </div>
           </div>

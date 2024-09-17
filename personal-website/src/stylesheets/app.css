@@ -5,7 +5,7 @@
 }
 
 :root {
-  --section-spacing: 20vh;
+  --section-spacing: 15vh;
   --light-text-color: #f7f7f7;
   --dark-bg-color: #141414;
   --gray-color: #434343;
@@ -82,8 +82,8 @@ canvas {
 .navbar-text-underline {
   position: absolute;
   content: " ";
-  display: block;
-  width: 0px;
+  flex:1;
+  width:0;
   height: 1px;
   bottom: 0;
   background-color: var(--light-text-color);
@@ -91,7 +91,8 @@ canvas {
 }
 
 .navbar-text:hover + .navbar-text-underline {
-  width: 100px;
+  display:block;
+  width:100px;
 }
 
 .logo {
@@ -124,6 +125,7 @@ canvas {
 
 .progress-bar-label {
   color: var(--light-text-color);
+  font-family: "Roboto Mono";
   font-size: 24px;
 }
 
@@ -186,13 +188,20 @@ section {
     #0f2027
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
+  background: rgba( 255, 255, 255, 0.15 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 9px );
+  -webkit-backdrop-filter: blur( 8px );
+  border-radius: 30px;
+  border: 2px solid rgba( 255, 255, 255, 0.18 );
   display: flex;
   padding: 0 5%;
   align-items: center;
   justify-content: flex-start;
   flex-direction: column;
+  margin-bottom:5vh;
 
-  width: 100vw;
+  width: 90vw;
 }
 
 .offset-border {
