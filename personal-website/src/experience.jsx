@@ -6,6 +6,8 @@ import ttclogo from "./assets/ttclogo.png";
 import gtlogo from "./assets/gtlogo.png";
 import aafclogo from "./assets/aafclogo.png";
 import globalsparklogo from "./assets/globalspark.png";
+import solacelogo from "./assets/solacelogo.jpg";
+import perasologo from "./assets/perasologo.jpg";
 
 const ExperienceCard = ({location, date, role, image, index})=>{
 
@@ -26,7 +28,9 @@ const ExperienceCard = ({location, date, role, image, index})=>{
 
 function Experience() {
   const experiences = [
-    {location:"Global Spark", date :"May. 2024 - Aug. 2024", role:"Software Developer", image:globalsparklogo},
+    {location:"Peraso Inc.", date :"Jan. 2026 - Apr. 2026", role:"Software Engineer", image:perasologo},
+    {location:"Solace", date :"May. 2025 - Aug. 2025", role:"Software Developer in Test", image:solacelogo},
+    {location:"Global Spark", date :"May. 2024 - Apr. 2026", role:"Software Developer", image:globalsparklogo},
     {location:"AAFC Canada", date :"May. 2024 - Aug. 2024", role:"Testing Analyst", image:aafclogo},
     {location:"Grand & Toy", date :"Sep. 2023 - Dec. 2023", role:"IT Infrastructure & Operations", image:gtlogo},
     {location:"Toronto Transit Commission", date :"Jan. 2023 - Apr. 2023", role:"End User Devices Technician", image:ttclogo},

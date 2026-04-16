@@ -8,7 +8,7 @@
 
 .timeline-container {
   width: 100%;
-  height: 120vh;
+  height: 150vh;
   display: flex;
   justify-content: center;
 }
@@ -97,6 +97,7 @@
 @media only screen and (max-width: 940px){
   .timeline-container{
     justify-content: right;
+    height:170vh;
   }
 
   .card-container{
@@ -143,49 +144,41 @@
 }
 
 @media only screen and (max-width:660px){
+  .timeline-container {
+    height: auto;
+    justify-content: center;
+  }
+
   .card{
     min-width: 200px;
+    width: 100%;
+    height: auto;
+    min-height: fit-content;
+    box-sizing: border-box;
   }
 
   .card-container{
-    grid-template-rows: repeat(30, 32px);
-    grid-template-columns: repeat(8, 1fr);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+    min-height: auto;
+    height: auto;
+    min-width: 0;
+    margin-bottom: 0;
   }
 
-  .card-container :nth-child(odd of .card) {
-    grid-column: 1/8;
+  .card-container .card {
+    grid-row: auto !important;
+    grid-column: auto !important;
   }
 
-  .card-container :nth-child(even of .card) {
-    grid-column: 1/8;
-  }
-
-  .card-container :nth-child(1 of .card) {
-    grid-row: 2/10;
-  }
-  
-  .card-container :nth-child(2 of .card) {
-    grid-row: 11/19;
-  }
-  
-  .card-container :nth-child(3 of .card) {
-    grid-row: 20/28;
-  }
-
-  .card-container :nth-child(1 of .dot) {
-    grid-row: 5/6;
-  }
-  
-  .card-container :nth-child(2 of .dot) {
-    grid-row: 14/15;
-  }
-  
-  .card-container :nth-child(3 of .dot) {
-    grid-row: 23/24;
+  .card-container .dot {
+    display: none;
   }
 
   .media-timeline{
-    grid-row:1/30;
+    display: none;
   }
 }
 

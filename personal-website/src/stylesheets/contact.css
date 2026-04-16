@@ -43,7 +43,9 @@
 }
 
 .contact-svg {
-  height: 60px;
+  width: 60px;
+  height: auto;
+  object-fit: contain;
 }
 
 .contact-text {
@@ -81,4 +83,26 @@
   transition: opacity 0.4s ease;
   border-radius: 10px;
   padding: 2px 5px;
+}
+
+@media only screen and (max-width:800px){
+  .contact-text{
+    font-size: 18px;
+  }
+
+  .contact-container {
+    min-width:320px;
+    width:110%;
+    height:auto;
+  }
+
+  .contact-svg {
+    width: 40px;
+    height: auto;
+  }
+
+  .logo-container{
+    width:20%;
+  }
+
 }

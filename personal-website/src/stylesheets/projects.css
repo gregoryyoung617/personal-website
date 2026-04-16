@@ -119,3 +119,45 @@
   height: 30px;
   aspect-ratio: 1;
 }
+
+@media only screen and (max-width:800px){
+  .project {
+    width:100%;
+    height:auto;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+  }
+
+  .tools-container {
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+  }
+
+  .project-svg-container {
+    width: auto;
+    height: auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 12px;
+  }
+
+  .project-svg-sub-container {
+    width: 42px;
+    height: 42px;
+  }
+
+  .project-svg {
+    width: 100%;
+  }
+
+  .github-svg {
+    width: 42px;
+    height: 42px;
+  }
+}
