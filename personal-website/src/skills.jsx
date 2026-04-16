@@ -13,6 +13,7 @@ import javascriptsvg from "./svgs/javascript.svg";
 import reactsvg from "./svgs/react.svg";
 import firebasesvg from "./svgs/firebase.svg";
 import armsvg from "./svgs/arm.svg"
+import verilogsvg from "./svgs/verilog.svg";
 
 const SkillSvg = ({svg, name}) =>{
   useEffect(()=>{
@@ -40,24 +41,23 @@ function Skills() {
             <div className="skill">
               <div className="skill-title">Embedded Programming</div>
               <div className="skill-description">
-                2 years of experience in Low-level programming through FPGA, Cortex M3 and custom PCB projects.
+                3 years of experience in Low-level programming through FPGA projects in ARM assembly, VHDL and Verilog; including a fast floating point accumulator for machine learning.
               </div>
               <div className="skill-svg-container">
                 <SkillSvg svg = {csvg} name="C"/>
                 <div className="skill-separator"></div>
                 <SkillSvg svg = {cppsvg} name="C++"/>
                 <div className="skill-separator"></div>
-                <SkillSvg svg = {pythonsvg}name="Python"/>
-                <div className="skill-separator"></div>
                 <SkillSvg svg = {armsvg} name="ARM Assembly"/>
-                
+                <div className="skill-separator"></div>
+                <SkillSvg svg = {verilogsvg} name="Verilog"/>
               </div>
             </div>
             <div className="skill">
               <div className="skill-title">Web Development</div>
               <div className="skill-description">
                 Experienced with Front-end web design as well as Back-end tools
-                through various projects.
+                through various projects, such as the Global Spark Hacker Dashboard.
               </div>
               <div className="skill-svg-container">
                 <SkillSvg svg = {htmlsvg} name="HTML"/>
@@ -68,7 +68,7 @@ function Skills() {
                 <div className="skill-separator"></div>
                 <SkillSvg svg = {reactsvg} name = "React"/>
                 <div className="skill-separator"></div>
-                <SkillSvg svg = {firebasesvg} name="Firebase"/>
+                <SkillSvg svg = {pythonsvg}name="Python"/>
               </div>
             </div>
           </div>
