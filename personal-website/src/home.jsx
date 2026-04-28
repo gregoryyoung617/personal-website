@@ -12,10 +12,18 @@ import anime from "animejs/lib/anime.es.js";
 
 export default function Home() {
   useEffect(() => {
+    const backgroundOverscanRatio = window.matchMedia("(pointer: coarse)")
+      .matches
+      ? 0.1
+      : 0;
+
     const getViewportSize = () => ({
       width: Math.round(window.visualViewport?.width ?? window.innerWidth),
       height: Math.round(window.visualViewport?.height ?? window.innerHeight),
     });
+
+    const getRenderHeight = (viewportHeight) =>
+      Math.ceil(viewportHeight * (1 + backgroundOverscanRatio));
 
     const syncViewportHeight = (height = getViewportSize().height) => {
       document.documentElement.style.setProperty("--app-height", `${height}px`);
@@ -32,10 +40,11 @@ export default function Home() {
     let viewportSampleUntil = 0;
 
     syncViewportHeight(initialViewport.height);
+    const initialRenderHeight = getRenderHeight(initialViewport.height);
 
     const camera = new THREE.PerspectiveCamera(
       50,
-      initialViewport.width / initialViewport.height,
+      initialViewport.width / initialRenderHeight,
       1,
       1000
     );
@@ -52,7 +61,7 @@ export default function Home() {
       antialias: true,
     });
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-    renderer.setSize(initialViewport.width, initialViewport.height);
+    renderer.setSize(initialViewport.width, initialRenderHeight);
     document.body.appendChild(renderer.domElement);
 
     const applyViewportSize = () => {
@@ -66,10 +75,11 @@ export default function Home() {
       }
 
       currentViewport = nextViewport;
+      const renderHeight = getRenderHeight(nextViewport.height);
       syncViewportHeight(nextViewport.height);
-      camera.aspect = nextViewport.width / nextViewport.height;
+      camera.aspect = nextViewport.width / renderHeight;
       camera.updateProjectionMatrix();
-      renderer.setSize(nextViewport.width, nextViewport.height);
+      renderer.setSize(nextViewport.width, renderHeight);
     };
 
     const sampleViewportDuringScroll = () => {
