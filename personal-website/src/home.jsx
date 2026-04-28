@@ -13,21 +13,25 @@ import anime from "animejs/lib/anime.es.js";
 export default function Home() {
   useEffect(() => {
     const getViewportSize = () => ({
-      width: window.visualViewport?.width ?? window.innerWidth,
-      height: window.visualViewport?.height ?? window.innerHeight,
+      width: Math.round(window.visualViewport?.width ?? window.innerWidth),
+      height: Math.round(window.visualViewport?.height ?? window.innerHeight),
     });
 
-    const syncViewportHeight = () => {
-      const { height } = getViewportSize();
+    const syncViewportHeight = (height = getViewportSize().height) => {
       document.documentElement.style.setProperty("--app-height", `${height}px`);
     };
+
+    const viewportSampleDuration = 180;
 
     //Setup
     const scene = new THREE.Scene();
 
-    syncViewportHeight();
-
     const initialViewport = getViewportSize();
+    let currentViewport = initialViewport;
+    let viewportSamplerFrame = null;
+    let viewportSampleUntil = 0;
+
+    syncViewportHeight(initialViewport.height);
 
     const camera = new THREE.PerspectiveCamera(
       50,
@@ -51,17 +55,56 @@ export default function Home() {
     renderer.setSize(initialViewport.width, initialViewport.height);
     document.body.appendChild(renderer.domElement);
 
-    const handleViewportResize = () => {
-      const { width, height } = getViewportSize();
+    const applyViewportSize = () => {
+      const nextViewport = getViewportSize();
 
-      syncViewportHeight();
-      camera.aspect = width / height;
+      if (
+        nextViewport.width === currentViewport.width &&
+        nextViewport.height === currentViewport.height
+      ) {
+        return;
+      }
+
+      currentViewport = nextViewport;
+      syncViewportHeight(nextViewport.height);
+      camera.aspect = nextViewport.width / nextViewport.height;
       camera.updateProjectionMatrix();
-      renderer.setSize(width, height);
+      renderer.setSize(nextViewport.width, nextViewport.height);
+    };
+
+    const sampleViewportDuringScroll = () => {
+      applyViewportSize();
+
+      if (performance.now() < viewportSampleUntil) {
+        viewportSamplerFrame = window.requestAnimationFrame(
+          sampleViewportDuringScroll
+        );
+        return;
+      }
+
+      viewportSamplerFrame = null;
+    };
+
+    const startViewportSampler = () => {
+      viewportSampleUntil = performance.now() + viewportSampleDuration;
+
+      if (viewportSamplerFrame !== null) {
+        return;
+      }
+
+      viewportSamplerFrame = window.requestAnimationFrame(
+        sampleViewportDuringScroll
+      );
+    };
+
+    const handleViewportResize = () => {
+      applyViewportSize();
     };
 
     window.addEventListener("resize", handleViewportResize);
+    window.addEventListener("scroll", startViewportSampler, { passive: true });
     window.visualViewport?.addEventListener("resize", handleViewportResize);
+    window.visualViewport?.addEventListener("scroll", startViewportSampler);
 
     //Lighting
 
@@ -206,7 +249,14 @@ export default function Home() {
 
     return () => {
       window.removeEventListener("resize", handleViewportResize);
+      window.removeEventListener("scroll", startViewportSampler);
       window.visualViewport?.removeEventListener("resize", handleViewportResize);
+      window.visualViewport?.removeEventListener("scroll", startViewportSampler);
+
+      if (viewportSamplerFrame !== null) {
+        window.cancelAnimationFrame(viewportSamplerFrame);
+      }
+
       controls.dispose();
       renderer.dispose();
       document.documentElement.style.removeProperty("--app-height");
