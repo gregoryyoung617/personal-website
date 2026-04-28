@@ -12,12 +12,26 @@ import anime from "animejs/lib/anime.es.js";
 
 export default function Home() {
   useEffect(() => {
+    const getViewportSize = () => ({
+      width: window.visualViewport?.width ?? window.innerWidth,
+      height: window.visualViewport?.height ?? window.innerHeight,
+    });
+
+    const syncViewportHeight = () => {
+      const { height } = getViewportSize();
+      document.documentElement.style.setProperty("--app-height", `${height}px`);
+    };
+
     //Setup
     const scene = new THREE.Scene();
 
+    syncViewportHeight();
+
+    const initialViewport = getViewportSize();
+
     const camera = new THREE.PerspectiveCamera(
       50,
-      window.innerWidth / window.innerHeight,
+      initialViewport.width / initialViewport.height,
       1,
       1000
     );
@@ -33,8 +47,21 @@ export default function Home() {
       canvas,
       antialias: true,
     });
-    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setSize(initialViewport.width, initialViewport.height);
     document.body.appendChild(renderer.domElement);
+
+    const handleViewportResize = () => {
+      const { width, height } = getViewportSize();
+
+      syncViewportHeight();
+      camera.aspect = width / height;
+      camera.updateProjectionMatrix();
+      renderer.setSize(width, height);
+    };
+
+    window.addEventListener("resize", handleViewportResize);
+    window.visualViewport?.addEventListener("resize", handleViewportResize);
 
     //Lighting
 
@@ -176,6 +203,14 @@ export default function Home() {
       window.requestAnimationFrame(animate);
     };
     animate();
+
+    return () => {
+      window.removeEventListener("resize", handleViewportResize);
+      window.visualViewport?.removeEventListener("resize", handleViewportResize);
+      controls.dispose();
+      renderer.dispose();
+      document.documentElement.style.removeProperty("--app-height");
+    };
   }, []);
 
   return (

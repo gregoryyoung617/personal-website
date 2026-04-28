@@ -53,6 +53,7 @@
   align-items: center;
   gap: 15px;
   height: 45px;
+  margin-top: auto;
 }
 
 .svg-container{
@@ -87,10 +88,10 @@
   margin-top: 10vh;
 }
 
-@media only screen and (max-width:800px){
+@media only screen and (max-width:1000px){
   .skills-section{
     min-height:800px;
-    min-width:340px;
+    min-width:300px;
   }
 
   .skills-section > .offset-border{
@@ -105,5 +106,9 @@
   .skill{
     width:100%;
     height:50%;
+  }
+
+  .skills-container{
+    align-items:center;
   }
 }
